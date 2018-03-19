@@ -16,4 +16,6 @@ $hereString=@'
 '@
 ```
 
+It needs Windows 10 / Server 2016 because of the line `FQDN = (Resolve-DnsName $_.srcIp -QuickTimeout).NameHost | Out-String`. It can be changed to `FQDN = ([system.net.dns]::gethostentry($_.SrcIp)).hostname | Out-String` which should work back to PS 3.0.
+
 I'll tidy it up... one day.
